@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:taskkey/services/theme_services.dart';
 import 'package:taskkey/ui/home_page.dart';
 import 'package:taskkey/ui/theme.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: Themes.light, //callmetode
       darkTheme: Themes.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeServices().theme,
       home: HomePage()
     );
   }
