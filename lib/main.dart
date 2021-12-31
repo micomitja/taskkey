@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taskkey/ui/home_page.dart';
+import 'package:taskkey/ui/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(  //tells me how my  app should like
-          primaryColor: Colors.amber,
-          brightness: Brightness.dark
-      ),
-      darkTheme: ThemeData(
-
-      ),
+      theme: Themes.light, //callmetode
+      themeMode: ThemeMode.dark,
       home: HomePage()
     );
   }
