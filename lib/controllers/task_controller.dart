@@ -9,7 +9,7 @@ class TaskController extends GetxController {
 
   @override
   void onReady() {
-    getTasks();
+    getTasks(); // geta taske
     super.onReady();
   }
 
@@ -18,7 +18,7 @@ class TaskController extends GetxController {
   //drugi oklepaji pomenjo da so poimenovani kot optional parametr
   // add data to table
   Future<void> addTask({Task task}) async {
-    return await DBHelper.insert(task);
+    return await DBHelper.insert(task); // inserta v bazo
   }
 
   // get all the data from table
@@ -27,7 +27,7 @@ class TaskController extends GetxController {
     taskList.assignAll(tasks.map((data) => new Task.fromJson(data)).toList());
   }
 
-  // delete data from table
+  // delete data from tablee
   void deleteTask(Task task) async {
     await DBHelper.delete(task);
     getTasks();
@@ -35,7 +35,7 @@ class TaskController extends GetxController {
 
   // update data int table
   void markTaskCompleted(int id) async {
-    await DBHelper.update(id);
+    await DBHelper.update(id); //db Hellper
     getTasks();
   }
 }

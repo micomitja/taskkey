@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  /// date bar gor na vrhu
+  /// date bar gor na vrhu pagea
   _dateBar() {
     return Container(
       margin: EdgeInsets.only(bottom: 10, left: 20), //margin na robih ko drugač je trash
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  /// pasica z datumom pa gumbom add task
+  /// pasica z datumom pa gumbom add taska
   _addTaskBar() {
     return Container(
       margin: EdgeInsets.only(bottom: 12),

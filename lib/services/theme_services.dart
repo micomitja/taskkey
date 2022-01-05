@@ -6,13 +6,13 @@ class ThemeService {
   final _box = GetStorage(); // boolean status
   final _key = 'isDarkMode'; //kluč, ko id v jsonu recimo
 
-  /// Get isDarkMode info iz local storage pol pa returna ThemeMode
+  /// Get isDarkMode info iz local storage pol pa returna ThemeMode tak ko je ostal shranjen v aplikaciji
   ThemeMode get theme => _loadThemeFromBox() ? ThemeMode.dark : ThemeMode.light;
 
   ///Funkcija _loadThemeFromBox nalož isDArkMode iz local storage pol pa če je empty, returns false (to pomen da je default thema light)
   bool _loadThemeFromBox() => _box.read(_key) ?? false; // če je katera koli vrednost return that as tru čene pa false
 
-  /// Save isDarkMode v local storage
+  /// Saveaa isDarkMode v local storageee
   _saveThemeToBox(bool isDarkMode) => _box.write(_key, isDarkMode);
 
   /// Switch theme pa save to local storage, funkcija za switchat themo

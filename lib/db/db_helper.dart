@@ -40,23 +40,23 @@ class DBHelper {
     }
   }
 
-  /// insert part
+  /// insert part pri bazii insertam ko dodamo zadeve
   static Future<int> insert(Task task) async {
     print("insert function called");
     return await _db.insert(_tableName, task.toJson());
   }
-  /// delete part če je prazna
+  /// delete part če je prazna če je tabela prazna oz ni nobega ideja več not
   static Future<int> delete(Task task) async =>
       await _db.delete(_tableName, where: 'id = ?',
           whereArgs: [task.id]);
 
-  /// poizvedba
+  /// poizvedba po podatkovni bazi
   static Future<List<Map<String, dynamic>>> query() async {
     print("query function called");
     return _db.query(_tableName);
   }
 
-  /// update tablea ko
+  /// updateamo tabelo too se zgodi oz kliče ko se nek task nardi pa mamo completede zadevo
   static Future<int> update(int id) async {
     print("update function called");
     return await _db.rawUpdate('''

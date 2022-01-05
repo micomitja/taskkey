@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:taskkey/ui/size_config.dart';
 import 'package:taskkey/ui/theme.dart';
 
 /// Universal Widget za vse Gumbe

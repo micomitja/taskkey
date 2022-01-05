@@ -12,6 +12,8 @@ const Color white = Colors.white;
 const Color darkGreyClr = Color(0xFF121212);
 Color darkHeaderClr = Colors.grey[800];
 
+
+///vse zadeve za temo
 class Themes {
   static final light = ThemeData(
     backgroundColor: Colors.white, // odgovorn za appbar
@@ -24,7 +26,7 @@ class Themes {
     brightness: Brightness.dark, //Spremenimo Brightnes fora glede texta beu text pa backgrogund barve
   );
 }
-
+///potem pa še vsi style
 TextStyle get headingTextStyle {
   return GoogleFonts.lato(
     textStyle: TextStyle(

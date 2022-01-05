@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+/// file ki ima Size Configuration čez
 class SizeConfig {
   static MediaQueryData _mediaQueryData;
   static double screenWidth;

@@ -29,15 +29,15 @@ class _AddTaskPageState extends State<AddTaskPage> {
 
   @override
   Widget build(BuildContext context) {
-    //Below shows the time like Sep 15, 2021
-    //print(new DateFormat.yMMMd().format(new DateTime.now()));
+    //Bel time like Sep 15, 2021
+    ////print(new ow shows theDateFormat.yMMMd().format(new DateTime.now()));
     print(" starttime " + _startTime);
     final now = new DateTime.now();
     final dt = DateTime(now.year, now.month, now.day, now.minute, now.second);
     final format = DateFormat.jm();
     print(format.format(dt));
     print("add Task date: " + DateFormat.yMd().format(_selectedDate));
-    //_startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
+    //_startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();$
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
       appBar: _appBar(),
@@ -142,7 +142,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
       ),
     );
   }
-
+/// preverimo pravilnost vnoešenih parametrov
   _validateInputs() { //preverjamo še datume
     if (_titleController.text.isNotEmpty && _noteController.text.isNotEmpty) {
       _addTaskToDB();

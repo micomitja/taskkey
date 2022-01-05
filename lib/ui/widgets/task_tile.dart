@@ -9,6 +9,8 @@ class TaskTile extends StatelessWidget {
   final Task task;
   TaskTile(this.task);
 
+
+  ///buildmao zadeve glede tilea za prikazat text na koncu
   @override
   Widget build(BuildContext context) {
     return Container(

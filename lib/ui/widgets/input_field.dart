@@ -15,6 +15,7 @@ class InputField extends StatelessWidget {
       @required this.hint,
       this.widget});
 
+  ///buildamo sam widget za vnosno polje
   @override
   Widget build(BuildContext context) {
     return Container(

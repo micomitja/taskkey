@@ -1,5 +1,5 @@
 // Task model mamo zato da povemo kk submitat data v database torej strukturo pa format
-// basiclyy how to get date how to save data pa format.
+// basiclyy how to get how to save data pa format.
 class Task {
   int id;
   String title;
@@ -10,7 +10,7 @@ class Task {
   String endTime;
   int color;
 
-  //konstruktor inicializacija
+  ///konstruktor inicializacija vseh paratetrov je model za controler
   Task({
     this.id,
     this.title,

@@ -12,7 +12,7 @@ void main() async {
   await GetStorage.init(); // get storage rabi ta async oz ta await za inicializacijo
 runApp(MyApp());
 }
-
+///Main Dart kjer se nastavjo zadeve torej thema pa theme mode potem pa še določi Home page
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
