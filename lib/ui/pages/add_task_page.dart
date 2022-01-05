@@ -1,0 +1,303 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:get/get.dart';
+import 'package:taskkey/controllers/task_controller.dart';
+import 'package:taskkey/models/task.dart';
+import 'package:taskkey/ui/theme.dart';
+import 'package:taskkey/ui/widgets/button.dart';
+import 'package:taskkey/ui/widgets/input_field.dart';
+import 'package:intl/intl.dart';
+
+class AddTaskPage extends StatefulWidget {
+  @override
+  _AddTaskPageState createState() => _AddTaskPageState();
+}
+
+class _AddTaskPageState extends State<AddTaskPage> {
+  final TaskController _taskController = Get.find<TaskController>();
+
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _noteController = TextEditingController();
+
+  DateTime _selectedDate = DateTime.now();
+  //String _startTime = DateFormat("hh:mm").format(DateTime.now());
+  //_startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
+  String _startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
+
+  String _endTime = "11:30 AM";
+  int _selectedColor = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    //Below shows the time like Sep 15, 2021
+    //print(new DateFormat.yMMMd().format(new DateTime.now()));
+    print(" starttime " + _startTime);
+    final now = new DateTime.now();
+    final dt = DateTime(now.year, now.month, now.day, now.minute, now.second);
+    final format = DateFormat.jm();
+    print(format.format(dt));
+    print("add Task date: " + DateFormat.yMd().format(_selectedDate));
+    //_startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
+    return Scaffold(
+      backgroundColor: context.theme.backgroundColor,
+      appBar: _appBar(),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        child: SingleChildScrollView( //help for scroll da gre tipkovnica odpspodi uno pa gor
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Add Task",
+                style: headingTextStyle,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              InputField(
+                title: "Title",
+                hint: "Enter Task title here.",
+                controller: _titleController,
+              ),
+              InputField(
+                  title: "Note",
+                  hint: "Enter Task note here.",
+                  controller: _noteController),
+              InputField(
+                title: "Date",
+                hint: DateFormat.yMd().format(_selectedDate),
+                widget: IconButton(
+                  icon: (Icon(
+                    FlutterIcons.calendar_ant,
+                    color: Colors.grey,
+                  )),
+                  onPressed: () {
+                    //_showDatePicker(context);
+                    _getDateFromUser();
+                  },
+                ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: InputField(
+                      title: "Start Time",
+                      hint: _startTime,
+                      widget: IconButton(
+                        icon: (Icon(
+                          FlutterIcons.clock_faw5,
+                          color: Colors.grey,
+                        )),
+                        onPressed: () {
+                          _getTimeFromUser(isStartTime: true);
+                          setState(() {
+
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Expanded(
+                    child: InputField(
+                      title: "End Time",
+                      hint: _endTime,
+                      widget: IconButton(
+                        icon: (Icon(
+                          FlutterIcons.clock_faw5,
+                          color: Colors.grey,
+                        )),
+                        onPressed: () {
+                          _getTimeFromUser(isStartTime: false);
+                        },
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 18.0,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _colorChips(),
+                  MyButton(
+                    label: "Create Task",
+                    onTap: () {
+                      _validateInputs();
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  _validateInputs() { //preverjamo še datume
+    if (_titleController.text.isNotEmpty && _noteController.text.isNotEmpty) {
+      _addTaskToDB();
+      Get.back();
+    } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
+      Get.snackbar(
+        "Required",
+        "All fields are required.",
+        snackPosition: SnackPosition.BOTTOM, // snackbar od spodi error message
+      );
+    } else {
+      print("### ERROR MESSAGE: 'SOMETHING BAD HAPPENED' ##");
+    }
+  }
+
+  // odgovorn za submitanje data v kontroler. task ko ga želimo dat v database
+  _addTaskToDB() async {
+    await _taskController.addTask(
+      // za vsak field pošlemo v kontroler z modelom
+      task: Task(
+        note: _noteController.text,
+        title: _titleController.text,
+        date: DateFormat.yMd().format(_selectedDate),
+        startTime: _startTime,
+        endTime: _endTime,
+        color: _selectedColor,
+        isCompleted: 0,
+      ),
+    );
+  }
+
+
+  _colorChips() {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(
+        "Color",
+        style: titleTextStle,
+      ),
+      SizedBox(
+        height: 8,
+      ),
+      Wrap(  // wrap za vse tri barve z indexi
+        children: List<Widget>.generate( //nardi otroke pa da indexe od 0-2
+          3,
+          (int index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  _selectedColor = index;  // določimo index
+                  //print("$index");
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: CircleAvatar(
+                  radius: 14,
+                  backgroundColor: index == 0 //glede na index prikažemo pravo barvo
+                      ? blueClr
+                      : index == 1
+                          ? pinkClr
+                          : yellowClr,
+                  child: index == _selectedColor // glede na index dodamo tut pol to klukico
+                      ? Center(
+                          child: Icon(
+                            Icons.done,
+                            color: Colors.white,
+                            size: 18,
+                          ),
+                        )
+                      : Container(),
+                ),
+              ),
+            );
+          },
+        ).toList(),
+      ),
+    ]);
+  }
+
+  _appBar() {  //dodat je treba v zadeve v app bar da mamo back arrow da gremo nazaj
+    return AppBar(
+        elevation: 0,
+        backgroundColor: context.theme.backgroundColor,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(Icons.arrow_back_ios, size: 24, color: primaryClr),
+        ),
+    );
+  }
+
+  // _compareTime() {
+  //   print("compare time");
+  //   print(_startTime);
+  //   print(_endTime);
+
+  //   var _start = double.parsestartTime);
+  //   var _end = toDouble(_endTime);
+
+  //   print(_start);
+  //   print(_end);
+
+  //   if (_start > _end) {
+  //     Get.snackbar(
+  //       "Invalid!",
+  //       "Time duration must be positive.",
+  //       snackPosition: SnackPosition.BOTTOM,
+  //       overlayColor: context.theme.backgroundColor,
+  //     );
+  //   }
+  // }
+
+  double toDouble(TimeOfDay myTime) => myTime.hour + myTime.minute / 60.0;
+
+  _getTimeFromUser({@required bool isStartTime}) async {
+    var _pickedTime = await _showTimePicker();
+    print(_pickedTime.format(context));
+    String _formatedTime = _pickedTime.format(context);
+    print(_formatedTime);
+    if (_pickedTime == null)
+      print("time canceld");
+    else if (isStartTime)
+      setState(() {
+        _startTime = _formatedTime;
+      });
+    else if (!isStartTime) {
+      setState(() {
+        _endTime = _formatedTime;
+      });
+      //_compareTime();
+    }
+  }
+
+  _showTimePicker() async {
+    return showTimePicker(
+      initialTime: TimeOfDay(
+          hour: int.parse(_startTime.split(":")[0]),
+          minute: int.parse(_startTime.split(":")[1].split(" ")[0])),
+      initialEntryMode: TimePickerEntryMode.input,
+      context: context,
+    );
+  }
+
+  _getDateFromUser() async {
+    final DateTime _pickedDate = await showDatePicker(
+        context: context,
+        initialDate: _selectedDate,
+        initialDatePickerMode: DatePickerMode.day,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2101));
+    if (_pickedDate != null) {
+      setState(() {
+        _selectedDate = _pickedDate;
+      });
+    }
+  }
+}
