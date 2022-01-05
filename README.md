@@ -52,15 +52,15 @@ Flutter pa ima tudi opcijp just in time kompilacijo ki omogča vroče ponovno na
 
 # Izgled Aplikacije
 
-![Screenshot_1641399176](https://user-images.githubusercontent.com/56089916/148293673-3b26fc47-eb26-4b45-a3d4-efd04527bfba.png)
-![Screenshot_1641399400](https://user-images.githubusercontent.com/56089916/148293739-b2958ac8-4b50-4038-a062-74e0e04c1edc.png)
-![Screenshot_1641399418](https://user-images.githubusercontent.com/56089916/148293757-9b2bc481-0f5f-42fe-ba8e-1a654d7f2466.png)
-![Screenshot_1641399434](https://user-images.githubusercontent.com/56089916/148293789-d70bae82-f8ab-4bc2-8344-b2d8d25e1dce.png)
+![Screenshot_1641399176](https://user-images.githubusercontent.com/56089916/148293673-3b26fc47-eb26-4b45-a3d4-efd04527bfba.png){:height="50%" width="50%"}
+![Screenshot_1641399400](https://user-images.githubusercontent.com/56089916/148293739-b2958ac8-4b50-4038-a062-74e0e04c1edc.png){:height="50%" width="50%"}
+![Screenshot_1641399418](https://user-images.githubusercontent.com/56089916/148293757-9b2bc481-0f5f-42fe-ba8e-1a654d7f2466.png){:height="50%" width="50%"}
+![Screenshot_1641399434](https://user-images.githubusercontent.com/56089916/148293789-d70bae82-f8ab-4bc2-8344-b2d8d25e1dce.png){:height="50%" width="50%"}
 
-![Screenshot_1641399825](https://user-images.githubusercontent.com/56089916/148293815-7837aa72-d6d5-42da-b0f9-9390e4baf280.png)
-![Screenshot_1641399946](https://user-images.githubusercontent.com/56089916/148293846-eb13a7a1-5358-47a9-8c9f-5d865422bc82.png)
+![Screenshot_1641399825](https://user-images.githubusercontent.com/56089916/148293815-7837aa72-d6d5-42da-b0f9-9390e4baf280.png){:height="50%" width="50%"}
+![Screenshot_1641399946](https://user-images.githubusercontent.com/56089916/148293846-eb13a7a1-5358-47a9-8c9f-5d865422bc82.png){:height="50%" width="50%"}
 
-![Screenshot_1641400220](https://user-images.githubusercontent.com/56089916/148293860-2b4ebf96-7f14-4cd8-8513-daecefa3c76e.png)
+![Screenshot_1641400220](https://user-images.githubusercontent.com/56089916/148293860-2b4ebf96-7f14-4cd8-8513-daecefa3c76e.png){:height="50%" width="50%"}
 
 
 
