@@ -60,8 +60,7 @@ Flutter pa ima tudi opcijp just in time kompilacijo ki omogča vroče ponovno na
 ![Screenshot_1641399825](https://user-images.githubusercontent.com/56089916/148293815-7837aa72-d6d5-42da-b0f9-9390e4baf280.png){:height="50%" width="50%"}
 ![Screenshot_1641399946](https://user-images.githubusercontent.com/56089916/148293846-eb13a7a1-5358-47a9-8c9f-5d865422bc82.png){:height="50%" width="50%"}
 
-![Screenshot_1641400220](https://user-images.githubusercontent.com/56089916/148293860-2b4ebf96-7f14-4cd8-8513-daecefa3c76e.png){:height="50%" width="50%"}
-
+![Screenshot_1641400220](https://user-images.githubusercontent.com/56089916/148293860-2b4ebf96-7f14-4cd8-8513-daecefa3c76e.png){:height="700px" width="400px"}
 
 
 
