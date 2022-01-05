@@ -51,8 +51,8 @@ Flutter je odprtokodni komplet za razvoj programske opreme uporabniškega vmesni
 Flutter pa ima tudi opcijp just in time kompilacijo ki omogča vroče ponovno nalaganje s katerim se lahko spremembe izvornih datotek vnesejo v delujočo aplikacijo. Kar precej pohitri tudi sam razvoj aplikacije
 
 # Izgled Aplikacije
-<img src="https://user-images.githubusercontent.com/56089916/148293673-3b26fc47-eb26-4b45-a3d4-efd04527bfba.png" width="200" height="400" />
-<img src="https://user-images.githubusercontent.com/56089916/148293739-b2958ac8-4b50-4038-a062-74e0e04c1edc.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/56089916/148293673-3b26fc47-eb26-4b45-a3d4-efd04527bfba.png" width="400" height="800" />
+<img src="https://user-images.githubusercontent.com/56089916/148293739-b2958ac8-4b50-4038-a062-74e0e04c1edc.png" width="400" height="800" />
 <img src="https://user-images.githubusercontent.com/56089916/148293757-9b2bc481-0f5f-42fe-ba8e-1a654d7f2466.png" width="200" height="400" />
 <img src="https://user-images.githubusercontent.com/56089916/148293757-9b2bc481-0f5f-42fe-ba8e-1a654d7f2466.png" width="200" height="400" />
 <img src="https://user-images.githubusercontent.com/56089916/148293789-d70bae82-f8ab-4bc2-8344-b2d8d25e1dce.png" width="200" height="400" />
